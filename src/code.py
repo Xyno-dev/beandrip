@@ -36,13 +36,28 @@ def indexhtml():
                     color: #efefff;
                     background-color: #111122;
                     font: 20px Nunito, sans-serif;
-                    button {
-                        color: #efefff;
-                        background-color: #111122;
-                        background-image: url('down.svg');
-                        padding: 20px 20px;
-                        border-radius: 50%;
-                    }
+                }
+                button {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    border: none;
+                }
+                .up {
+                    background: url('https://raw.githubusercontent.com/Xyno-dev/beandrip/refs/heads/main/up.svg') no-repeat center;
+                    background-size: contain;
+                }
+                .down {
+                    background: url('https://raw.githubusercontent.com/Xyno-dev/beandrip/refs/heads/main/down.svg') no-repeat center;
+                    background-size: contain;
+                }
+                .left {
+                    background: url('https://raw.githubusercontent.com/Xyno-dev/beandrip/refs/heads/main/left.svg') no-repeat center;
+                    background-size: contain;
+                }
+                .right {
+                    background: url('https://raw.githubusercontent.com/Xyno-dev/beandrip/refs/heads/main/right.svg') no-repeat center;
+                    background-size: contain;
                 }
             </style>
         </head>
@@ -52,25 +67,25 @@ def indexhtml():
             <p>Welcome to the Pico Birb webserver</p>
             <p>
                 <form accept-charset="utf-8" method="POST">
-                    <button class="button" name="mouseup" value="up" type="submit"></button>
+                    <button class="up" name="mouseup" value="up" type="submit"></button>
                     </a>
                 </form>
             </p>
             <p>
                 <form accept-charset="utf-8" method="POST">
-                    <button class="button" name="mousedown" value="down" type="submit"></button>
+                    <button class="down" name="mousedown" value="down" type="submit"></button>
                     </a>
                 </form>
             </p>
             <p>
                 <form accept-charset="utf-8" method="POST">
-                    <button class="button" name="mouseleft" value="left" type="submit"</button>
+                    <button class="left" name="mouseleft" value="left" type="submit"></button>
                     </a>
                 </form>
             </p>
             <p>
                 <form accept-charset="utf-8" method="POST">
-                    <button class="button" name="mouseright" value="right" type="submit"></button>
+                    <button class="right" name="mouseright" value="right" type="submit"></button>
                     </a>
                 </form>
             </p>
