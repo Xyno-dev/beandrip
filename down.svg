@@ -29,7 +29,7 @@
      inkscape:zoom="1.0494248"
      inkscape:cx="238.70219"
      inkscape:cy="267.28928"
-     inkscape:window-width="1290"
+     inkscape:window-width="1496"
      inkscape:window-height="800"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -41,15 +41,22 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <circle
+       style="fill:#19162c;fill-opacity:1;stroke:#111122;stroke-width:0;stroke-opacity:1"
+       id="path2"
+       cx="67.73333"
+       cy="67.73333"
+       r="67.73333" />
     <g
        id="g3"
-       transform="matrix(-1.7909067,0,0,-1.7909067,184.67893,222.83299)">
+       transform="matrix(-1.7909067,0,0,-1.7909067,184.67893,222.83299)"
+       style="fill:#efefff;fill-opacity:1;stroke:#efefff;stroke-opacity:1">
       <path
-         style="fill:#000000;stroke:#000000;stroke-width:6.85271;stroke-linecap:round;stroke-dasharray:none"
+         style="fill:#efefff;stroke:#efefff;stroke-width:6.85271;stroke-linecap:round;stroke-dasharray:none;fill-opacity:1;stroke-opacity:1"
          d="M 65.299661,56.727505 V 116.48047"
          id="path1" />
       <path
-         style="fill:#000000;stroke:#000000;stroke-width:6.85271;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+         style="fill:#efefff;stroke:#efefff;stroke-width:6.85271;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;fill-opacity:1;stroke-opacity:1"
          d="M 54.716328,75.384551 65.299661,56.727505 75.882994,75.384551 Z"
          id="path3"
          sodipodi:nodetypes="cccc" />
