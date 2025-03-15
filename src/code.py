@@ -17,9 +17,11 @@ m = Mouse(usb_hid.devices)
 k = Keyboard(usb_hid.devices)
 l = KeyboardLayoutUS(k)
 
-#print(f"Connecting to {secrets['WIFI_SSID']}...")
+autoclick = False
+
+print(f"Connecting to {secrets['WIFI_SSID']}...")
 wifi.radio.connect(secrets['WIFI_SSID'], secrets['WIFI_PASSWORD'])
-#print(f"Connected to {secrets['WIFI_SSID']}")
+print(f"Connected to {secrets['WIFI_SSID']}")
 
 pool = socketpool.SocketPool(wifi.radio)
 
@@ -89,6 +91,12 @@ def indexhtml():
                     </a>
                 </form>
             </p>
+            <p>
+                <form accept-charset="utf-8" method="POST">
+                    <button class="autoclick" name="autoclick" value="autoclick" type="submit">autoclick</button>
+                    </a>
+                </form>
+            </p>
         </body>
     """
     return html
@@ -99,6 +107,7 @@ def index(request: Request):
 
 @server.route("/", POST)
 def buttonpress(request: Request):
+    global autoclick
     text = request.raw_request.decode("utf8")
     if "up" in text:
         m.move(0, -50)
@@ -108,6 +117,26 @@ def buttonpress(request: Request):
         m.move(-50, 0)
     if "right" in text:
         m.move(50, 0)
+    if "autoclick" in text:
+        autoclick = not autoclick
+        print(f"Autoclick toggled: {autoclick}")
     return Response(request, f"{indexhtml()}", content_type="text/html")
 
-server.serve_forever(str(wifi.radio.ipv4_address))
+def autoclicker():
+    global autoclick
+    if autoclick:
+        m.press(Mouse.LEFT_BUTTON)
+        time.sleep(0.03)
+        m.release(Mouse.LEFT_BUTTON)
+        time.sleep(0.03)
+
+server.start()
+
+while True:
+    try:
+        server.poll()
+        autoclicker()
+    except Exception as e:
+        print(f"Error: {e}")
+
+
