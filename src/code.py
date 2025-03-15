@@ -27,11 +27,17 @@ pool = socketpool.SocketPool(wifi.radio)
 
 server = Server(pool, "/static", debug=True)
 
+def move(x, y, s):
+    m.move(x, y, s)
+    
+def type(t):
+    l.write(t)
+
 def indexhtml():
     html = """
         <!DOCTYPE html>
         <head>
-            <title>Pico Birb</title>
+            <title>Beandrip</title>
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
                 body {
@@ -64,9 +70,9 @@ def indexhtml():
             </style>
         </head>
         <body>
-            <h1>Pico Birb</h1>
+            <h1>Beandrip</h1>
             <hr>
-            <p>Welcome to the Pico Birb webserver</p>
+            <p>Your personal coffee machine!</p>
             <p>
                 <form accept-charset="utf-8" method="POST">
                     <button class="up" name="mouseup" value="up" type="submit"></button>
@@ -97,6 +103,12 @@ def indexhtml():
                     </a>
                 </form>
             </p>
+            <p>
+                <form accept-charset="utf-8" method="POST">
+                    <button class="drip" name="drip" value="drip" type="submit">drip</button>
+                    </a>
+                </form>
+            </p>
         </body>
     """
     return html
@@ -120,6 +132,9 @@ def buttonpress(request: Request):
     if "autoclick" in text:
         autoclick = not autoclick
         print(f"Autoclick toggled: {autoclick}")
+    if "drip" in text:
+        import bean
+        bean.main()
     return Response(request, f"{indexhtml()}", content_type="text/html")
 
 def autoclicker():
@@ -128,7 +143,7 @@ def autoclicker():
         m.press(Mouse.LEFT_BUTTON)
         time.sleep(0.03)
         m.release(Mouse.LEFT_BUTTON)
-        time.sleep(0.03)
+        time.sleep(0.03)    
 
 server.start()
 
