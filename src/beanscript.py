@@ -14,7 +14,9 @@ l_to_k = {
         "k": Keycode.K, "l": Keycode.L, "m": Keycode.M, "n": Keycode.N, "o": Keycode.O,
         "p": Keycode.P, "q": Keycode.Q, "r": Keycode.R, "s": Keycode.S, "t": Keycode.T,
         "u": Keycode.U, "v": Keycode.V, "w": Keycode.W, "x": Keycode.X, "y": Keycode.Y,
-        "z": Keycode.Z,
+        "z": Keycode.Z, "f1": Keycode.F1, "f2": Keycode.F2, "f3": Keycode.F3, "f4": Keycode.F4,
+        "f5": Keycode.F5, "f6": Keycode.F6, "f7": Keycode.F7, "f8": Keycode.F8, "f9": Keycode.F9,
+        "f10": Keycode.F10, "f11": Keycode.F11, "f12": Keycode.F12
     }
 
 def move(x: int, y: int, s: int = 0):
